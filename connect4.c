@@ -47,9 +47,9 @@ int getMenuChoice(){
 void playerNames(char player1[], char player2[]){
   //prompts user for player names, stores them in appropriate strings
   printf("Player 1, enter your name: ");
-  gets(*player1);
+  scanf("%s", player1);
   printf("Player 2, enter your name: ");
-  gets(*player2);
+  scanf("%s", player2);  
 }
   
 void printBoard(char arr[][SIZE]){
