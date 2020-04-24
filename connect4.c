@@ -10,6 +10,7 @@
 #define SIZE 100
 
 int getMenuChoice();
+void playerNames(char[], char[]);
 void printBoard(char[][SIZE]);
 void updateBoard(char[][SIZE]);
 int checkPlayer();
@@ -42,6 +43,14 @@ int getMenuChoice(){
   scanf("%d", &input);
          return input;
   }
+
+void playerNames(char player1[], char player2[]){
+  //prompts user for player names, stores them in appropriate strings
+  printf("Player 1, enter your name: ");
+  gets(*player1);
+  printf("Player 2, enter your name: ");
+  gets(*player2);
+}
   
 void printBoard(char arr[][SIZE]){
   // simply prints out the board to the screen.
