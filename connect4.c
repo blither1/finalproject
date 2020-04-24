@@ -8,6 +8,7 @@
 #include <string.h>
 #include <stdbool.h>
 #define SIZE 100
+#define MAX 50
 
 int getMenuChoice();
 void playerNames(char[], char[]);
@@ -16,7 +17,10 @@ void updateBoard(char[][SIZE]);
 int checkPlayer();
 
 int main(){
+  
   int option;
+  char playera[MAX], playerb[MAX];
+  
   do{
   option = getMenuChoice();
   switch(option){
