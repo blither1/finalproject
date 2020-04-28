@@ -15,10 +15,11 @@ void playerNames(char[], char[]);
 void printBoard(char[][SIZE]);
 void updateBoard(char[][SIZE]);
 int checkPlayer();
+int winCheck (char *boardState, int row, int col);
 
 int main(){
   
-  int option;
+  int option, difficulty = 4;
   char playera[MAX], playerb[MAX];
   
   do{
@@ -70,3 +71,64 @@ int checkPlayer(){
   //checks which player's turn it is and returns a 0 or 1.
   return 0;
 }
+
+int winCheck (char *boardState, int row, int col, int difficulty) {
+  //checks for a connect 4 in all directions. vertical only has to be checked going down but everything else must be checked in both directions.
+  //Also works for different 'difficulties', the difficulty is how many pieces have to be connected for a win, this is for the extra credit.
+int hor = 0;
+int ver = 0;
+int d1 = 0;
+int d2 = 0;
+int i = row-1;
+int j = col;
+while (boardState[row][col] == boardState[i, j]) {
+  ver++; 
+  i--;
+}
+int i = row;
+int j = col-1;
+while (boardState[row][col] == boardState[i, j]) {
+  hor++; 
+  j--;
+}
+int i = row;
+int j = col+1;
+while (boardState[row][col] == boardState[i, j]) {
+  hor++; 
+  j++;
+}
+int i = row-1;
+int j = col-1;
+while (boardState[row][col] == boardState[i, j]) {
+  d1++; 
+  j--;
+  i--;
+}
+int i = row+1;
+int j = col+1;
+while (boardState[row][col] == boardState[i, j]) {
+  d1++; 
+  j++;
+  i++;
+}
+int i = row-1;
+int j = col+1;
+while (boardState[row][col] == boardState[i, j]) {
+  d2; 
+  j++;
+  i--;
+}
+int i = row+1;
+int j = col-1;
+while (boardState[row][col] == boardState[i, j]) {
+  d2; 
+  j--;
+  i++;
+}
+if (hor>difficulty-1||ver>difficulty-1||d1>difficulty-1||d2>difficulty-1) {
+  return 1;
+}
+else {
+  return 0;
+}
+
